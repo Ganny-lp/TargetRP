@@ -1,0 +1,31 @@
+import math
+
+
+###########  Questão 1 ###########
+
+####Apesar de podermos fazer pelo método iterativo, seria mais custoso e trabalhoso fazer dessa forma. Podemos usar a propriedade que diz que
+# se 5n²±4 for quadrado perfeito, n faz parte da sequencia de fibonacci:
+def eh_fibonacci(x):
+    def eh_quadrado_perfeito(num):
+        raiz = int(math.sqrt(num))
+        return raiz * raiz == num
+
+    return eh_quadrado_perfeito(5 * x * x + 4) or eh_quadrado_perfeito(5 * x * x - 4)
+
+
+
+###########  Questão 2 ###########
+#Iteramos pela string em busca de 'a' ou 'A' e atualizamos o contador.
+def count_a(s):
+    counter = 0
+    for char in s:
+        if char == 'a' or char == 'A':
+            counter += 1
+    if counter == 0:
+        print("Não há nenhuma letra A na palavra.")
+    return counter
+
+# Exemplo
+s = "ExemploaaaaaaA"
+resultado = count_a(s)
+print("Número de letras 'A':", resultado)
